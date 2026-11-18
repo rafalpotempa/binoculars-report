@@ -1,0 +1,28 @@
+[project]
+name = "binoculars-report"
+version = "0.1.0"
+description = "Batch AI-text detection reports with Binoculars, inspired by clarity: per-sentence key phrases, the model's own wording and plain-language explanations of every flag, as HTML or Markdown (and optionally JSON)."
+readme = "README.md"
+requires-python = ">=3.11,<3.14"
+dynamic = ["dependencies"]
+
+[project.scripts]
+binoculars-report = "binoculars_report.cli:main"
+
+[build-system]
+requires = ["hatchling", "hatch-requirements-txt"]
+build-backend = "hatchling.build"
+
+[tool.hatch.metadata.hooks.requirements_txt]
+files = ["requirements/requirements.txt"]
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/binoculars_report"]
+
+[tool.uv.pip]
+universal = true
+python-version = "3.11"
+custom-compile-command = "uv pip compile requirements/requirements.in -o requirements/requirements.txt"

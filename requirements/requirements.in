@@ -1,0 +1,8 @@
+# Direct dependencies only. Every package, including transitive ones, is pinned in requirements.txt, generated from this file with:
+#   uv pip compile requirements/requirements.in -o requirements/requirements.txt          (add --upgrade to bump versions; review the diff)
+# Compile options live in [tool.uv.pip] in pyproject.toml.
+
+pysbd
+torch
+tqdm
+transformers
